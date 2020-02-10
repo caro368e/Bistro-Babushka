@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2 {
+    font-family: 'Noto Serif', serif;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    padding: 1em;
+    margin-left: 3em;
+}
+
+a:hover {
+    transition: 0.3s;
+    color: #000;
+}
+
+header {
+    font-size: 1em;
+    background: #d30059;
+}
+
+nav {
+    display: grid;
+
+}
+
+.data-container {
+    display: grid;
+    grid-template-columns:
+}
