@@ -32,7 +32,9 @@ function visRetter() {
             klon.querySelector(".kategori").textContent = ret.gsx$kategori.$t;
             klon.querySelector(".kort").textContent = ret.gsx$kort.$t;
             klon.querySelector(".pris").textContent = ret.gsx$pris.$t;
-            klon.querySelector("img").src = ret.gsx$billede.$t;
+
+            klon.querySelector("img").src = `imgs/small/${
+                ret.gsx$billede.$t}-sm.jpg`;
 
             container.appendChild(klon);
         }
