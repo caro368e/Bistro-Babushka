@@ -7,25 +7,86 @@
 h1,
 h2 {
     font-family: 'Noto Serif', serif;
+    text-align: center;
+    color: #fff;
+    margin: .5em;
 }
 
 p {
     font-family: 'Open Sans', sans-serif;
 }
 
-article {
+section {
     padding: 10px;
+    border-radius: 5px;
+
+}
+
+body {
+    background-color: #744f2f;
+}
+
+
+
+#showcase_container {
+    background: rgba(98, 63, 37, 0.5);
+    width: 100vw;
+    height: 15vw;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    font-size: 3em;
+    letter-spacing: 0.3em;
+
+}
+
+#showcase {
+    background-image: url(imgs/spicy.jpg);
+    background-size: cover;
+    width: 100vw;
+    height: 15vw;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+
+}
+
+nav button {
+    border: none;
+    text-decoration: none;
+    padding: 1em;
+    margin: 1em;
+    cursor: pointer;
+    background: #744f2f;
+    color: #fff;
+    font-size: 1em;
+}
+
+nav button:hover {
+    color: #dd9e54;
+    transition: 0.5s;
 }
 
 #data-container {
-    max-width: 1500px;
+    max-width: 1800px;
     margin: 0 auto;
-    padding: 10px;
-    background: #ececec;
+    padding: 0.5em;
+    background: #291f13;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    cursor: pointer;
+    color: #fff;
+
     ;
 }
+
+
 
 img {
     max-width: 100%;
@@ -40,6 +101,11 @@ img {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10;
+    overflow: scroll;
+}
+
+#detalje img {
+    max-width: 400px;
 }
 
 #detalje button {
@@ -49,10 +115,10 @@ img {
 }
 
 
-.person {
+.ret_popup {
     margin: 3em;
     padding: 2em;
-    background-color: white;
+    background-color: #fff;
 }
 
 .skjul {

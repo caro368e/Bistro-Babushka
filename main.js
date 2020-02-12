@@ -38,7 +38,7 @@ function visRetter() {
                 ret.gsx$billede.$t}-sm.jpg`;
 
             klon.querySelector("article").addEventListener("click", function () {
-                visDetalje(detalje);
+                visDetalje(ret);
             });
 
             container.appendChild(klon);
@@ -47,10 +47,16 @@ function visRetter() {
     });
 }
 
-function visDetalje(person) {
+function visDetalje(ret) {
     detalje.classList.remove("skjul");
     detalje.querySelector("button").addEventListener("click", () => detalje.classList.add("skjul"));
-    console.log(person.gsx$navn);
+
+    detalje.querySelector("h3").textContent = ret.gsx$navn.$t;
+    detalje.querySelector(".lang").textContent = ret.gsx$lang.$t;
+    detalje.querySelector(".pris").textContent = ret.gsx$pris.$t;
+
+    detalje.querySelector("img").src = `imgs/large/${ret.gsx$billede.$t}.jpg`;
+
 }
 
 
