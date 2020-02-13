@@ -69,21 +69,27 @@ nav button {
 }
 
 nav button:hover {
-    color: #dd9e54;
+    color: #eb3737;
     transition: 0.5s;
 }
 
 #data-container {
-    max-width: 1800px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0.5em;
-    background: #291f13;
+    padding: 2em;
+    background: #9d6a3e;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     cursor: pointer;
     color: #fff;
+    grid-gap: 10px;
 
     ;
+}
+
+#data-container p {
+    padding: 0.2em;
+    font-size: 1.2em;
 }
 
 
@@ -99,26 +105,62 @@ img {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 10;
     overflow: scroll;
+
 }
 
+
+
 #detalje img {
-    max-width: 400px;
+    max-width: 600px;
+    border: solid #fff 1px;
+    border-radius: 5px;
+
 }
 
 #detalje button {
     width: 30px;
     height: 30px;
     font-size: 1.5em;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    color: #fff;
+    border: none;
+    font-size: 2em;
+
 }
 
 
 .ret_popup {
-    margin: 3em;
+    margin: 20px auto;
     padding: 2em;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 4em;
+    background-color: #9d6a3e;
+    width: 1000px;
+    border-radius: 5px;
+    color: #fff;
+
+
+
+}
+
+.ret_popup p {
+    padding: 0.1em;
+    font-size: 1.5em;
+    align-self: flex-start;
+}
+
+.ret_popup h3 {
+    font-size: 2em;
+    margin-top: 0.5
 }
 
 .skjul {

@@ -23,7 +23,7 @@ async function hentData() {
 }
 
 
-
+// Gør retterne synlige
 function visRetter() {
     container.innerHTML = "";
     retter.feed.entry.forEach(ret => {
@@ -32,34 +32,37 @@ function visRetter() {
             klon.querySelector(".navn").textContent = ret.gsx$navn.$t;
             klon.querySelector(".kategori").textContent = ret.gsx$kategori.$t;
             klon.querySelector(".kort").textContent = ret.gsx$kort.$t;
-            klon.querySelector(".pris").textContent = ret.gsx$pris.$t;
+            klon.querySelector(".pris").textContent = ret.gsx$pris.$t + ".-";
 
             klon.querySelector("img").src = `imgs/small/${
                 ret.gsx$billede.$t}-sm.jpg`;
 
             klon.querySelector("article").addEventListener("click", function () {
-                visDetalje(ret);
+
+                location.href = "single.html?id=" + ret.gsx$id.$t;
             });
 
             container.appendChild(klon);
-        }
 
+        }
     });
 }
 
-function visDetalje(ret) {
-    detalje.classList.remove("skjul");
-    detalje.querySelector("button").addEventListener("click", () => detalje.classList.add("skjul"));
 
-    detalje.querySelector("h3").textContent = ret.gsx$navn.$t;
-    detalje.querySelector(".lang").textContent = ret.gsx$lang.$t;
-    detalje.querySelector(".pris").textContent = ret.gsx$pris.$t;
+//Tilføjer elementer til min popup her
+//function visDetalje(ret) {
+//  detalje.classList.remove("skjul");
+//  detalje.querySelector("button").addEventListener("click", () => detalje.classList.add("skjul"));
 
-    detalje.querySelector("img").src = `imgs/large/${ret.gsx$billede.$t}.jpg`;
+//  detalje.querySelector("h3").textContent = ret.gsx$navn.$t;
+//  detalje.querySelector(".lang").textContent = ret.gsx$lang.$t;
+//  detalje.querySelector(".pris").textContent = ret.gsx$pris.$t;
 
-}
+//  detalje.querySelector("img").src = `imgs/large/${ret.gsx$billede.$t}.jpg`;
 
+//}
 
+//Tilføjer klik til filtreringen af de forskellige kategorier når man klikker på knapperne.
 function addEventListenersToButtons() {
     document.querySelectorAll(".filter").forEach(elm => {
         elm.addEventListener("click", filtrering);

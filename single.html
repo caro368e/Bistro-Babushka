@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section id="detalje">
+
+        <article class="ret_popup">
+            <button>X</button>
+            <img src="" alt="">
+            <h3 class="navn"></h3>
+            <p class="kategori"></p>
+            <p class="pris"></p>
+            <p class="lang"></p>
+        </article>
+    </section>
+
+
+
+    <script>
+        //Går op og får URL'en
+        const Urlparameter = new URLSearchParams(window.location.search);
+
+        //Giv mig den del af parameteret der er ID'et
+        const retID = Urlparameter.get("id");
+
+        console.log(retID);
+
+
+        const detalje = document.querySelector("#detalje");
+        let retter;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentData();
+            addEventListenersToButtons();
+        }
+
+        async function hentData() {
+            let jsonData = await
+            fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
+
+            let tempVar = await jsonData.json();
+            retter = tempVar.feed.entry;
+
+            visRet();
+        }
+
+        //sammenligner med det ID vi har fået tilsendt oppe i URL'en
+        function visRet() {
+            retter.forEach(ret => {
+                if (ret.gsx$id.$t == retID) {
+                    console.log(ret);
+
+                    detalje.querySelector("button").addEventListener("click", () => {
+                        history.back();
+                    });
+
+                    detalje.querySelector("h3").textContent = ret.gsx$navn.$t;
+                    detalje.querySelector(".lang").textContent = ret.gsx$lang.$t;
+                    detalje.querySelector(".pris").textContent = ret.gsx$pris.$t;
+
+                    detalje.querySelector("img").src = `imgs/large/${ret.gsx$billede.$t}.jpg`;
+                }
+            })
+        }
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+
+            })
+        }
+
+    </script>
+</body>
+
+</html>
