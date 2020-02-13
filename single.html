@@ -66,7 +66,7 @@
 
                     detalje.querySelector("h3").textContent = ret.gsx$navn.$t;
                     detalje.querySelector(".lang").textContent = ret.gsx$lang.$t;
-                    detalje.querySelector(".pris").textContent = ret.gsx$pris.$t;
+                    detalje.querySelector(".pris").textContent = ret.gsx$pris.$t + ".-";
 
                     detalje.querySelector("img").src = `imgs/large/${ret.gsx$billede.$t}.jpg`;
                 }
